@@ -31,7 +31,6 @@
         </div>
 
         <div id="box" style="display:none">
-            </span><input type = "text" name = "Serial No." id = "userial">
             <input type = "text" name = "Name" id = "uName">
             <input type = "text" name = "Phone Number" id="uPhoneNumber">
             <input type = "button" value = "AddCustomer" onclick="addData()">
@@ -39,7 +38,7 @@
 
         <input type = "button" value = "Settled" onclick="dele()">
 
-        <p id ="freespace">25</p>
+        <p>There is <span id ="freespace">25</span> slots available</p>
 
         
         <button onclick="showEntry()">Entry</button>
@@ -58,6 +57,8 @@
             var box = document.getElementById("box");
             var freespace = 25;
 
+            var serial = 0;
+
             function showEntry(){
                 box.style.display ="block";
             }
@@ -70,7 +71,7 @@
                     // var serial = prompt("Serial No.");
                     // var Name = prompt("Name");
                     // var PhN = prompt("Phone Number");
-                    var serial = document.getElementById("userial").value;
+                    serial+=1
                     var Name = document.getElementById("uName").value;
                     var PhN = document.getElementById("uPhoneNumber").value;
                     if (serial ==="" || Name==="" || PhN ===""){
@@ -103,7 +104,7 @@
                 } else {
                     freespace+=1;
                     document.getElementById("freespace").innerHTML =freespace;
-                    tbody.removeChild(tbody.lastChild);
+                    tbody.deleteRow(1)
                 }     
             }
 
