@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<style>
+    .colorize{
+        color:blue;
+    }
+</style>
+<html>
+    <head>
+        <title>Hotel California Waitlist System</title>
+    </head>
+
+    <body>
+        <h1 class="colorize">Hotel California Waitlist System</h1>
+
+        <div class="WaitingList" >
+            <table id="tab" style="display:none">
+                <caption>Entry List</caption>
+                <thread>
+                    <tr>
+                        <th>Serial No.</th>
+                        <th>Name</th>
+                        <th>Phone Number</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thread>
+
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div id="box" style="display:none">
+            </span><input type = "text" name = "Serial No." id = "userial">
+            <input type = "text" name = "Name" id = "uName">
+            <input type = "text" name = "Phone Number" id="uPhoneNumber">
+            <input type = "button" value = "AddCustomer" onclick="addData()">
+        </div>
+
+        <input type = "button" value = "Settled" onclick="dele()">
+
+        <p id ="freespace">25</p>
+
+        
+        <button onclick="showEntry()">Entry</button>
+
+        <button>Remove the entry</button>
+
+        <button onclick="displayTab()">Display</button>
+
+        <button onclick="hideTab()">homepage</button>
+
+
+        <script type="text/javascript" language="javascript">
+            
+
+            var tbody=document.querySelector("tbody");
+            var box = document.getElementById("box");
+            var freespace = 25;
+
+            function showEntry(){
+                box.style.display ="block";
+            }
+            
+            
+            function addData(){
+                if (freespace===0){
+                    alert("There is no space left");
+                } else {
+                    // var serial = prompt("Serial No.");
+                    // var Name = prompt("Name");
+                    // var PhN = prompt("Phone Number");
+                    var serial = document.getElementById("userial").value;
+                    var Name = document.getElementById("uName").value;
+                    var PhN = document.getElementById("uPhoneNumber").value;
+                    if (serial ==="" || Name==="" || PhN ===""){
+                        alert("Please Input the Data");
+                    }
+                    else {
+                        var tatr=document.createElement('tr');
+                        var tatd1=document.createElement('th');
+                        var tatd2=document.createElement('th');
+                        var tatd3=document.createElement('th');
+                        var tatd4=document.createElement('th');          
+                        var timestamp = Date.parse(new Date());
+                        tatd1.innerHTML = serial;
+                        tatd2.innerHTML = Name;
+                        tatd3.innerHTML = PhN;
+                        tatd4.innerHTML = timestamp;
+                        tatr.appendChild(tatd1);
+                        tatr.appendChild(tatd2);
+                        tatr.appendChild(tatd3);
+                        tatr.appendChild(tatd4);
+                        tbody.appendChild(tatr);
+                        freespace-=1;
+                        document.getElementById("freespace").innerHTML =freespace;
+                    }
+                }  
+            }
+            function dele(){
+                if (freespace===25){
+                    alert("No space to dele");
+                } else {
+                    freespace+=1;
+                    document.getElementById("freespace").innerHTML =freespace;
+                    tbody.removeChild(tbody.lastChild);
+                }     
+            }
+
+            var myTable= document.getElementById('tab');
+            function displayTab(){
+                myTable.style.display ="block";
+            }
+            function hideTab(){
+                myTable.style.display ="none";
+                box.style.display = "none";
+            }
+            
+        </script>
+    </body>
+</html>
