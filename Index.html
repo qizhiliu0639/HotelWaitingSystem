@@ -1,26 +1,26 @@
-<!DOCTYPE html>
-<style>
-    .colorize{
-        color:blue;
-    }
-</style>
+<!DOCTYPE html  PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd”>
 <html>
     <head>
         <title>Hotel California Waitlist System</title>
+        <link rel="stylesheet" href="./style.css">
     </head>
 
     <body>
-        <h1 class="colorize">Hotel California Waitlist System</h1>
+        <h1>Hotel California Waitlist System</h1>
 
-        <div class="WaitingList" >
+
+
+        <p class="m-content">There is <span id ="freespace">25</span> slots available</p>
+
+        <div class="WaitingList m-table" >
             <table id="tab" style="display:none">
                 <caption>Entry List</caption>
                 <thread>
                     <tr>
-                        <th>Serial No.</th>
-                        <th>Name</th>
-                        <th>Phone Number</th>
-                        <th>Timestamp</th>
+                        <td>Serial No.</td>
+                        <td>Name</td>
+                        <td>Phone Number</td>
+                        <td>Timestamp</td>
                     </tr>
                 </thread>
 
@@ -30,25 +30,18 @@
             </table>
         </div>
 
-        <div id="box" style="display:none">
-            <input type = "text" name = "Name" id = "uName">
-            <input type = "text" name = "Phone Number" id="uPhoneNumber">
+        <div id="box" class="input" style="display:none">
+            <input type = "text" name = "Name" id = "uName" placeholder="Name">
+            <input type = "text" name = "Phone Number" id="uPhoneNumber" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder="Phone Number" value=""> 
             <input type = "button" value = "AddCustomer" onclick="addData()">
+            <input type = "button" value = "Settled" onclick="dele()">
         </div>
 
-        <input type = "button" value = "Settled" onclick="dele()">
-
-        <p>There is <span id ="freespace">25</span> slots available</p>
-
-        
         <button onclick="showEntry()">Entry</button>
-
-        <button>Remove the entry</button>
 
         <button onclick="displayTab()">Display</button>
 
         <button onclick="hideTab()">homepage</button>
-
 
         <script type="text/javascript" language="javascript">
             
@@ -71,19 +64,20 @@
                     // var serial = prompt("Serial No.");
                     // var Name = prompt("Name");
                     // var PhN = prompt("Phone Number");
-                    serial+=1
+                    
                     var Name = document.getElementById("uName").value;
                     var PhN = document.getElementById("uPhoneNumber").value;
-                    if (serial ==="" || Name==="" || PhN ===""){
+                    if (Name==="" || PhN ===""){
                         alert("Please Input the Data");
                     }
                     else {
+                        serial+=1
                         var tatr=document.createElement('tr');
-                        var tatd1=document.createElement('th');
-                        var tatd2=document.createElement('th');
-                        var tatd3=document.createElement('th');
-                        var tatd4=document.createElement('th');          
-                        var timestamp = Date.parse(new Date());
+                        var tatd1=document.createElement('td');
+                        var tatd2=document.createElement('td');
+                        var tatd3=document.createElement('td');
+                        var tatd4=document.createElement('td');          
+                        var timestamp = getdate();
                         tatd1.innerHTML = serial;
                         tatd2.innerHTML = Name;
                         tatd3.innerHTML = PhN;
@@ -95,6 +89,8 @@
                         tbody.appendChild(tatr);
                         freespace-=1;
                         document.getElementById("freespace").innerHTML =freespace;
+                        document.getElementById('uName').value = null
+                        document.getElementById('uPhoneNumber').value = null
                     }
                 }  
             }
@@ -109,13 +105,23 @@
             }
 
             var myTable= document.getElementById('tab');
+
             function displayTab(){
                 myTable.style.display ="block";
             }
+
             function hideTab(){
                 myTable.style.display ="none";
                 box.style.display = "none";
             }
+
+            function getdate() {
+                var now = new Date(),
+                y = now.getFullYear(),
+                m = now.getMonth() + 1,
+                d = now.getDate();
+                return y + "-" + (m < 10 ? "0" + m : m) + "-" + (d < 10 ? "0" + d : d) + " " + now.toTimeString().substr(0, 8);
+        }
             
         </script>
     </body>

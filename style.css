@@ -1,0 +1,46 @@
+h1{
+    color:black;
+    text-align:center;
+    font-family:"Times New Roman";
+    font-size:70px;
+}
+
+body
+{
+    background-color:white;
+    text-align:center;
+}
+
+table{
+    border-collapse:collapse;
+    table-layout:fixed;
+    width:40%;
+    margin:0 auto;
+}
+tr{
+    background: aliceblues;
+    margin:0 auto;
+}
+td{
+    border: 1px solid black;
+    margin:0 auto;
+    width:10%;
+    text-align: center;
+}
+
+p{
+    font-family:"New Roman";
+    font-size:40px;
+}
+
+span{
+    font-size:60px;
+}
+.input{
+    text-align:center;
+}
+
+.m-content{
+    text-align:center;
+    font-family:"Times New Roman";
+}
