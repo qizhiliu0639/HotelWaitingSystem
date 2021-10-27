@@ -1,0 +1,28 @@
+scalar GraphQLDate
+
+type Customer {
+  _id : ID!
+  id : Int!
+  name : String!
+  phoneNumber : Int!
+  date : GraphQLDate
+}
+
+input CustomerInputs {
+  name : String!
+  phoneNumber : Int!
+  date:GraphQLDate
+}
+
+##### Top level declarations
+
+type Query {
+  about: String!
+  issueList: [Customer!]!
+}
+
+type Mutation {
+  setAboutMessage(message: String!): String
+  issueAdd(issue: CustomerInputs!): Customer!
+  issueDelete(issueID:Int!): Customer!
+}

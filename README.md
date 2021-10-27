@@ -1,2 +1,0 @@
-# HotelWaitingSystem
- tutorial
