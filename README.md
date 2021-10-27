@@ -38,6 +38,13 @@ This system is a Hotel Waiting System. There are two main function:
 
 * Delete customer from the system.
 
+The front page looks like this:
+
+![HotelWaitingSystem](./HomePage.png)
+
+To add a customer to the system, you need to enter his or her name and phone number. `phone number` only takes Int as input, the system will alert you if you input other type data.
+
+To delete a customer, you need to enter the id of the customer in the table. `DeleteID` also need to be a int type.
 
 ## File Instruction
 
