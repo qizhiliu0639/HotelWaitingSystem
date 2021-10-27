@@ -296,4 +296,3 @@ class IssueList extends React.Component {
 const element = <IssueList />;
 
 ReactDOM.render(element, document.getElementById('contents'));
-s
