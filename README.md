@@ -1,10 +1,9 @@
 # Hotel Waiting System
 
-/*
-StudentID : A0228542E
+> StudentID : A0228542E
 Name : Liu ZHiqi
 Email : e0674526@u.nus.edu
-*/
+
 
 ## GitHub Address
 
