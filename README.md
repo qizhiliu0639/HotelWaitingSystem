@@ -1,5 +1,11 @@
 # Hotel Waiting System
 
+/*
+StudentID : A0228542E
+Name : Liu ZHiqi
+Email : e0674526@u.nus.edu
+*/
+
 ## GitHub Address
 
 https://github.com/crazyqiqi0639/HotelWaitingSystem
